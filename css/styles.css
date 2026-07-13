@@ -1090,3 +1090,7 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
 .staff-card__role,
 .contact-list__label,
 .photo-ph__label { font-style: normal !important; }
+
+/* Hero headline keeps the elegant serif look */
+.hero__title { font-family: "Noto Serif KR", Georgia, serif; font-weight: 700; letter-spacing: -0.02em; }
+.hero__title .en { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic !important; font-weight: 500; letter-spacing: 0; }
