@@ -40,10 +40,10 @@
   --c-coral: #e2705a;
   --c-amber: #d7a13c;
 
-  /* Type */
-  --font-sans: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "Noto Serif KR", Georgia, serif;
-  --font-en: "Cormorant Garamond", Georgia, serif;
+  /* Type — Microsoft 365 style: single clean sans (Pretendard ≈ Segoe UI / Malgun Gothic) */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", Roboto, sans-serif;
+  --font-serif: var(--font-sans);
+  --font-en: var(--font-sans);
 
   /* Layout */
   --container: 1180px;
@@ -95,11 +95,11 @@ a:hover { color: var(--primary-dark); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.28;
   margin: 0;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 ul { list-style: none; margin: 0; padding: 0; }
@@ -117,10 +117,10 @@ p:last-child { margin-bottom: 0; }
 
 .eyebrow {
   display: inline-block;
-  font-family: var(--font-en);
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--primary);
   margin: 0 0 0.85rem;
@@ -1081,3 +1081,12 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---- Microsoft 365-style typography: single sans family, no serif italics ---- */
+.en,
+.eyebrow,
+.brand__tagline,
+.svc-card__tag,
+.staff-card__role,
+.contact-list__label,
+.photo-ph__label { font-style: normal !important; }
