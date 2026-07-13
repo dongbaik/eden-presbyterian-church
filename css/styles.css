@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==========================================================================
    Eden Presbyterian Church of Oregon | 오레곤 에덴 장로교회
    Design system — bright, clean, modern, bilingual (KR primary / EN)
@@ -148,7 +149,7 @@ p:last-child { margin-bottom: 0; }
   font-size: 0.98rem;
   color: var(--primary);
 }
-.link-arrow::after { content: "→"; transition: transform var(--transition); }
+.link-arrow::after { content: "\2192"; transition: transform var(--transition); }
 .link-arrow:hover::after { transform: translateX(5px); }
 
 .text-center { text-align: center; }
@@ -948,7 +949,7 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
 }
 .tl-item__list { display: flex; flex-direction: column; gap: 0.5rem; }
 .tl-item__list li { color: var(--muted); font-size: 0.95rem; padding-left: 1rem; position: relative; }
-.tl-item__list li::before { content: "·"; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+.tl-item__list li::before { content: "\00B7"; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
 
 /* ------------------------------ Page hero (subpages) --------------------- */
 .page-hero {
