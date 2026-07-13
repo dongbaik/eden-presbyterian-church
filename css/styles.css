@@ -232,10 +232,11 @@ p:last-child { margin-bottom: 0; }
   font-style: italic;
   letter-spacing: 0.06em;
   color: var(--muted);
+  white-space: nowrap;
 }
-.brand__logo { height: 46px; width: auto; display: block; }
+.brand__mark-img { height: 40px; width: auto; display: block; flex-shrink: 0; }
 .brand--footer { margin-bottom: 1rem; }
-.brand--footer .brand__logo { height: 50px; filter: brightness(0) invert(1); opacity: 0.92; }
+.brand--footer .brand__mark-img { filter: brightness(0) invert(1); opacity: 0.92; }
 
 .primary-nav { display: flex; align-items: center; gap: 1.75rem; }
 .primary-nav__list { display: flex; align-items: center; gap: 1.6rem; }
@@ -1063,7 +1064,7 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
 
 @media (max-width: 520px) {
   .brand__tagline { display: none; }
-  .brand__logo { height: 38px; }
+  .brand__mark-img { height: 34px; }
   .calendar-embed iframe { height: 520px; }
   .photo-grid .span-2 { grid-column: span 2; grid-row: span 1; }
   .hero__actions .btn { width: 100%; }
