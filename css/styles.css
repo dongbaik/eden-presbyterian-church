@@ -910,12 +910,19 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
   border-radius: 50%;
   margin: 0 auto 1.2rem;
   display: grid; place-items: center;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--primary-light), var(--surface-2));
   color: var(--primary-dark);
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
   box-shadow: inset 0 0 0 2px rgba(45,138,99,0.15);
+}
+.staff-card__avatar picture { display: block; width: 100%; height: 100%; }
+.staff-card__avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .staff-card__role {
   font-family: var(--font-en); font-style: italic;
