@@ -59,6 +59,10 @@
   <main>
     <!-- ============================ HERO ============================ -->
     <section class="hero" id="hero">
+      <picture class="hero__bg-wrap" aria-hidden="true">
+        <source srcset="assets/photos/hero.webp" type="image/webp" />
+        <img class="hero__bg" src="assets/photos/hero.jpg" alt="" />
+      </picture>
       <div class="hero__decor" aria-hidden="true"></div>
       <div class="container hero__inner reveal">
         <h1 class="hero__title">
@@ -137,12 +141,10 @@
           <a class="link-arrow" href="about.html">교회 소개 자세히 보기 · Learn more about us</a>
         </div>
         <div class="split__media reveal" data-delay="1">
-          <div class="photo-ph photo-ph--4x3">
-            <span class="photo-ph__label">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-              교회 사진 · Church Photo
-            </span>
-          </div>
+          <picture>
+            <source srcset="assets/photos/about.webp" type="image/webp" />
+            <img class="split__img" src="assets/photos/about.jpg" width="1200" height="900" alt="에덴 교회 성도들의 모습" loading="lazy" />
+          </picture>
         </div>
       </div>
     </section>
@@ -279,21 +281,36 @@
         </div>
         <div class="card-grid">
           <article class="info-card reveal">
-            <div class="info-card__media photo-ph photo-ph--16x9"><span class="photo-ph__label">Domestic</span></div>
+            <div class="info-card__media">
+              <picture>
+                <source srcset="assets/photos/mission-1.webp" type="image/webp" />
+                <img src="assets/photos/mission-1.jpg" width="900" height="506" alt="국내 선교 현장" loading="lazy" />
+              </picture>
+            </div>
             <div class="info-card__body">
               <h3 class="info-card__title">국내 선교<span class="en">Domestic Mission</span></h3>
               <p class="info-card__text">지역 사회와 이웃을 섬기며 복음을 전하고, 다민족 교회의 꿈을 향해 나아갑니다.</p>
             </div>
           </article>
           <article class="info-card reveal" data-delay="1">
-            <div class="info-card__media photo-ph photo-ph--16x9"><span class="photo-ph__label">Global</span></div>
+            <div class="info-card__media">
+              <picture>
+                <source srcset="assets/photos/mission-2.webp" type="image/webp" />
+                <img src="assets/photos/mission-2.jpg" width="900" height="506" alt="해외 선교 현장" loading="lazy" />
+              </picture>
+            </div>
             <div class="info-card__body">
               <h3 class="info-card__title">해외 선교<span class="en">Global Mission</span></h3>
               <p class="info-card__text">온두라스, 루마니아 등지의 선교사를 파송·후원하며 매년 단기선교를 이어갑니다.</p>
             </div>
           </article>
           <article class="info-card reveal" data-delay="2">
-            <div class="info-card__media photo-ph photo-ph--16x9"><span class="photo-ph__label">Relief</span></div>
+            <div class="info-card__media">
+              <picture>
+                <source srcset="assets/photos/mission-3.webp" type="image/webp" />
+                <img src="assets/photos/mission-3.jpg" width="900" height="506" alt="긍휼과 구제 사역" loading="lazy" />
+              </picture>
+            </div>
             <div class="info-card__body">
               <h3 class="info-card__title">긍휼과 구제<span class="en">Relief &amp; Scholarship</span></h3>
               <p class="info-card__text">난민 어린이 성경 사역과 에덴 장학금을 통해 다음 세대와 이웃을 돕습니다.</p>
@@ -336,14 +353,39 @@
           <a class="link-arrow" id="photosLink" href="#photos">전체 사진 보기 · View all photos</a>
         </div>
         <div class="photo-grid reveal">
-          <a href="#photos" class="span-2"><span class="photo-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></span></a>
-          <a href="#photos"><span class="photo-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></span></a>
-          <a href="#photos"><span class="photo-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></span></a>
-          <a href="#photos"><span class="photo-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></span></a>
-          <a href="#photos"><span class="photo-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></span></a>
+          <a href="#photos" class="span-2">
+            <picture>
+              <source srcset="assets/photos/gallery-1.webp" type="image/webp" />
+              <img class="photo-tile" src="assets/photos/gallery-1.jpg" alt="에덴 교회 공동체" loading="lazy" />
+            </picture>
+          </a>
+          <a href="#photos">
+            <picture>
+              <source srcset="assets/photos/gallery-2.webp" type="image/webp" />
+              <img class="photo-tile" src="assets/photos/gallery-2.jpg" alt="에덴 교회 공동체" loading="lazy" />
+            </picture>
+          </a>
+          <a href="#photos">
+            <picture>
+              <source srcset="assets/photos/gallery-3.webp" type="image/webp" />
+              <img class="photo-tile" src="assets/photos/gallery-3.jpg" alt="에덴 교회 공동체" loading="lazy" />
+            </picture>
+          </a>
+          <a href="#photos">
+            <picture>
+              <source srcset="assets/photos/gallery-4.webp" type="image/webp" />
+              <img class="photo-tile" src="assets/photos/gallery-4.jpg" alt="에덴 교회 공동체" loading="lazy" />
+            </picture>
+          </a>
+          <a href="#photos">
+            <picture>
+              <source srcset="assets/photos/gallery-5.webp" type="image/webp" />
+              <img class="photo-tile" src="assets/photos/gallery-5.jpg" alt="에덴 교회 공동체" loading="lazy" />
+            </picture>
+          </a>
         </div>
         <p class="text-center" style="margin-top:1.25rem; color:var(--muted); font-size:0.92rem;">
-          Google Photos 앨범이 곧 연결됩니다 · Google Photos album coming soon
+          함께 나눈 은혜의 순간들 · Moments of grace we’ve shared together
         </p>
       </div>
     </section>

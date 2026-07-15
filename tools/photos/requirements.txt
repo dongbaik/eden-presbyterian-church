@@ -1,0 +1,10 @@
+# Google Photos Picker API + OAuth
+google-auth>=2.30
+google-auth-oauthlib>=1.2
+requests>=2.32
+
+# Image processing
+Pillow>=11.0
+
+# Optional: enables HEIC/HEIF (iPhone) input. Install separately if needed:
+#   pip install pillow-heif

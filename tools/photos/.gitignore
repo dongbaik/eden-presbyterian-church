@@ -1,0 +1,9 @@
+# Secrets and tokens — never commit these
+credentials.json
+token.json
+
+# Local working data
+downloads/
+.venv/
+__pycache__/
+*.pyc
