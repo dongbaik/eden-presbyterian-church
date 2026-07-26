@@ -46,6 +46,7 @@ SLOTS: list[Slot] = [
     Slot("mission-1", (16, 9), (900, 506)),       # Domestic mission card
     Slot("mission-2", (16, 9), (900, 506)),       # Global mission card
     Slot("mission-3", (16, 9), (900, 506)),       # Relief mission card
+    Slot("mission-4", (16, 9), (900, 506)),       # Missions conference card
     Slot("gallery-1", (16, 9), (1200, 675)),      # gallery span-2 wide tile
     Slot("gallery-2", (1, 1), (700, 700), prefer_landscape=False),
     Slot("gallery-3", (1, 1), (700, 700), prefer_landscape=False),
