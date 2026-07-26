@@ -20,9 +20,11 @@ local
     Skip Google entirely and process an already-exported folder of images
     (e.g. from Google Takeout / a shared-album download). Fully unattended::
 
-        python fetch_photos.py --source local --local-dir ~/Downloads/eden-album
+        tools/photos/.venv/bin/python \
+            .github/skills/update-site-photos/scripts/fetch_photos.py \
+            --source local --local-dir ~/Downloads/eden-album
 
-See README.md for the one-time Google Cloud setup.
+See tools/photos/README.md for the one-time Google Cloud setup.
 """
 
 from __future__ import annotations
@@ -36,14 +38,20 @@ from pathlib import Path
 
 import requests
 
-import process_images
+# process_images.py belongs to the sibling optimize-photos skill.
+sys.path.insert(
+    0, str(Path(__file__).resolve().parents[2] / "optimize-photos" / "scripts")
+)
+import process_images  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
-PROJECT_ROOT = HERE.parents[1]
+PROJECT_ROOT = HERE.parents[3]
 
-CREDENTIALS_FILE = HERE / "credentials.json"
-TOKEN_FILE = HERE / "token.json"
-DOWNLOAD_DIR = HERE / "downloads"
+# Secrets and bulky working data stay out of the skill folder.
+RUNTIME_DIR = PROJECT_ROOT / "tools" / "photos"
+CREDENTIALS_FILE = RUNTIME_DIR / "credentials.json"
+TOKEN_FILE = RUNTIME_DIR / "token.json"
+DOWNLOAD_DIR = RUNTIME_DIR / "downloads"
 OUTPUT_DIR = PROJECT_ROOT / "assets" / "photos"
 
 SCOPES = ["https://www.googleapis.com/auth/photospicker.mediaitems.readonly"]

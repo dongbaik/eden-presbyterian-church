@@ -1,0 +1,64 @@
+# 갤러리에 표시할 구글 포토 앨범 목록  (Google Photos albums shown in the gallery)
+#
+# 사용법
+#   1. 구글 포토(media@oregoneden.com)에서 앨범을 열고 "공유" → "링크 만들기"
+#      → 링크를 복사해서 아래에 한 줄씩 붙여넣습니다.
+#   2. 터미널에서 실행 (저장소 루트에서):
+#      tools/photos/.venv/bin/python .github/skills/update-gallery/scripts/sync_albums.py
+#      또는 그냥 에이전트에게 "갤러리 업데이트" 라고 말하세요.
+#   3. 제목 · 날짜 · 커버 사진이 자동으로 수집되어 gallery.html 이 갱신됩니다.
+#
+# 순서 = 갤러리에 표시되는 순서입니다. 최신 앨범을 맨 위에 두세요.
+# '#' 로 시작하는 줄과 빈 줄은 무시됩니다.
+#
+# 앨범 제목/날짜를 직접 지정하고 싶으면 ' | ' 로 덧붙이세요 (선택 사항):
+#
+#   <링크> | 여름 청소년 수련회 | 2026. 7. 14 – 21
+#   <링크> | 여름 청소년 수련회            (제목만 덮어쓰기, 날짜는 자동)
+#
+# 링크만 적으면 앨범 이름에서 "제목 · 날짜" 를 자동으로 분리합니다.
+# 아래 주석의 이름은 참고용이며, 실제 제목은 앨범에서 자동으로 가져옵니다.
+
+# --- 2026 ---
+https://photos.google.com/share/AF1QipPcRvGT7u-xFossldNLCdTYMtrl0g08-kvQfwDwp-4fTuP2PlsSpNF82jgzGIuEfQ?key=MWJmbFZfWjFzLXdQdGRZakhjaXg5Z2x1YWxha09B
+https://photos.google.com/share/AF1QipMy02JmlntVambK30v-z7ugwC_PbqdjtPlwZiRy9wSp04zwGiv3-_AqHLQLlZAVFw?key=Mlp2VGVVZFY5OGJLNWpBMFBDa01ia1dYVEpSOUlB
+https://photos.google.com/share/AF1QipNMZlQHgZDbjyG6sI-vphCLpiApGtipErc3_kDnMeHm7PdBU-iaKHvyRt9qGYoRcQ?key=NGJzMms3TXJ3TDhiamJ3VjVVLUdXWklndjFQTGVR
+https://photos.google.com/share/AF1QipPeV0x7yhgYgAtEvih35JFA8SB1MdPtYxQ9SbzguROF_9NJ0c2Lb5UOu81MGts_kA?key=NXRaX0xKUjlwdjFfc2EzNXlrbURjTXpLUVphQVJB
+
+# --- 2025 ---
+https://photos.google.com/share/AF1QipMGbzhX2y7t6EvQP_-QGdXZMingaOtn5zctWrrs2gFZmAk3TmDlBtqlyEjOfK839g?key=MjFoTHNLUGJfVXNSXzc4MTJ0TWRXendnTWllOHRn
+https://photos.google.com/share/AF1QipNBi2QY6WqmIRLGx1EtqOHKJdEbFp-k5G4gh2LptHFT9l5jBct_C4zjX9_DcYMsDA?key=dEFkemVXTUNCZnlUUmptZUNOdG9tSDNxR0RGbU1R
+https://photos.google.com/share/AF1QipPLVFJXviKLp9RbglqenTggXbLAZZ_PQYvjzQywBBfCl5ukvMwLsPg2fQ_Hr8iTkQ?key=bGsycUlZM1g0c1BkNFpOQWJGaVMzUXNLVXk4Y2tB
+https://photos.google.com/share/AF1QipP-dAVuzOJCxF1GAxwoxmfddrxEl_rFSthSQstFSJMNOWOZaaut_7D77HXcNVgWeQ?key=bGlnbDFNd3pzY3F4aFFoTERkWGxKRm13TWdaaTl3
+https://photos.google.com/share/AF1QipNE1ztG15Nx0YyCty3gapWIWbTeGDPkUxNQb9GbD82XWudJuJaMk3bESnA1xoikgQ?key=SUZHQ1h1aThDOFZ4QVBnN08zVDhwYmxUUlgySnhn
+https://photos.google.com/share/AF1QipPhDkYkHfAhFwJzLs51PWMKVLwsHcWvZpZpUXe33OqvBYjQFHOPVOqPlfm0f0EDKA?key=UlhJaVd0X2lQSFUwUWdZaUxlRlozMHNIREVWbFFR
+
+# --- 2024 ---
+https://photos.google.com/share/AF1QipPEftf74L3P-0eVwuKLtDaBVTyb2EyKaiWCnWoZVGHJOUlV7CcAWy3ec8LlhJSK-g?key=aEN2NTk2NHdnZnI3LUNORlBoOVY1U0Z4Z2NhNlRR
+https://photos.google.com/share/AF1QipNhPIc44YzcK0qUD8ezTf8rPxfGH1WM0P2Ke_DfhHOo9NMJxVjoMzJpccDSR64IOw?key=VjNUOEgtX2xqaFRldXVzcU9xVXRudklaSU5xWFdn
+https://photos.google.com/share/AF1QipP_ZA5TNBEYpaHOMXVttSIb69tHyCff4Iw6sRN1MJNJYudYBQFsSffmragyUlHLkw?key=ZWtSQV9OcTJhcTRoekg0LXg0enV5Ujd2TGF1WTVR
+https://photos.google.com/share/AF1QipMsDdBRCNwtg1Ij4Cqp4N-SRgnL9m21HYNS4OZF4SItU19SRYPpAfV_oJRg_7-xKQ?key=T2FXeUlwTjZkRUdaUlF4cFZ2ZFFzZkxjX3BSY0ZR
+https://photos.google.com/share/AF1QipNnRP4wvWaDQ0HKv1ztFktUly5zsQQ3RJR25-IAgX598ObH8SMun-KRabpi-Yj58g?key=YWxLa1kta3dCYXNpQTFTZ1VrSUoxZEFkdnZTRll3
+https://photos.google.com/share/AF1QipMBRGG9boZZcU0Pp-QycL6vyDO02Gb1Shz0S3CaNQe3qSFTuk42XNQYFUkEzIwm2Q?key=V3ZMTXFXU0MzQlBlZGUtNkdKc01hZ21rbm95RE1n
+
+# --- 2023 ---
+https://photos.google.com/share/AF1QipO1lFtHBVBiRHPfPPBnqHsaqO1v8ohC6Tzfw_KZgkWGsGGaaoC0ZJdlyJgtfcmiig?key=OHg0RzdLbEN2VlJIamdTVldpNDVraGNpUUFoeVpn
+https://photos.google.com/share/AF1QipPdXcnxinSqur_vd96HDJkEKX8SQkwW705bs-OJ7RhkDrpojzVKTXzmoJqE2WImTQ?key=TzFkaFNZR1JRYVpJdjdKZzJqY29YZHZNUGQxa3p3
+https://photos.google.com/share/AF1QipOML3Z7AXRqf-q6zEV1sI5sp36feEAzqXTo3SCwrg9qDX4YJzU-rWzwfigUr0Ei4Q?key=LUVIRUJ2NlBScFloa0lOTklkV3BhMUpxVHN1OF9B
+https://photos.google.com/share/AF1QipMcaYGaF8xAywaBH2SkTsSYUrrNZ_DWHt8sQBP7UHfku080fL_k1e-kfUyYjLoAnQ?key=dEZfMHJ6NVhuTjNsMHhYc0IxQWVfZFNHUDBqbE1R
+https://photos.google.com/share/AF1QipNRo4QNYeWTqHdCl8OkljKfDMMbmig4kjRbYcFcQLVrAOxrHFIAsNIAzZO4JyBR-A?key=N2tlcGg4b1NxbUhVa1p6ZFp1amxmWTEzREZiVXZR
+
+# --- 2022 ---
+https://photos.google.com/share/AF1QipOmKO4n3QjBLSf9ItTY48yE4R_s9MTl2hJRN0WVpETf75E7KHZq6i6JhPXNMuzxNQ?key=Z0tieFk5ZldKZVRKZ2FOcTFGSFZIclUybHZSQkd3
+
+# --- 2019 / 2018 ---
+https://photos.google.com/share/AF1QipOMg2V9b0IqRcthKOoJbLj4eN5B9lp98xa40bOqlotYdhSif0bMkZ97j-MX4EDciQ?key=TlBjMm5OSzQxS21zZGk3T3JlXzQzcDgxQmpFdDN3
+https://photos.google.com/share/AF1QipM6zHC0dnp5DFWtQ3om4DH9Tg17ZlcXd8ZItr753QZM0tJrPZm6QJNLLKCllGG36A?key=ZFNKM3R0X1cwSTBCN2h1V0NxODZKaUVNYWgzU19n
+
+# --- 링크에 key 가 없어 외부 공개가 안 되는 앨범 ---
+# 구글 포토에서 "공유 → 링크 만들기"를 눌러 key 가 포함된 링크로 교체한 뒤
+# 아래 주석(#)을 지우세요.
+# 에덴30주년 사진들
+# key 없음(소유자 전용): https://photos.google.com/share/AF1QipNNMuLRvAG5c8shfodN4QPCB-eg7SDK81bxrJ_o7cn7_U785s4cUEoTVkEO-9y1ig
+# 2023 추수감사 장로임직 예배
+# key 없음(소유자 전용): https://photos.google.com/share/AF1QipNXzIwh5DClm36ZhCVwx-XZjmUW2H-iV57pY6Woi3eiNYkZXehDwwINog_hov6w1Q

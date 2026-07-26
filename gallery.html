@@ -55,95 +55,311 @@
           <span class="eyebrow">Life at Eden</span>
           <h2 class="section__title">함께한 순간들<span class="en">Moments We Shared</span></h2>
           <p class="section__lead">
-            행사별로 사진과 영상을 모았습니다. 아래에서 각 행사의 순간들을 만나보세요.<br />
-            <span style="font-family:var(--font-en); font-style:italic; color:var(--muted);">Photos and videos organized by event.</span>
+            행사별 사진 앨범입니다. 앨범을 누르면 구글 포토에서 전체 사진을 보실 수 있습니다.<br />
+            <span style="font-family:var(--font-en); font-style:italic; color:var(--muted);">Tap an album to view all the photos on Google Photos.</span>
           </p>
         </div>
 
-        <!-- ============================================================= -->
-        <!-- EVENTS — newest first. To add a new event, copy one .event    -->
-        <!-- block below and update the title, date, photos and/or videos. -->
-        <!-- Photos live in  assets/photos/events/<event-slug>/            -->
-        <!-- ============================================================= -->
-
-        <!-- EVENT: Sunday Fellowship (sample, using existing gallery photos) -->
-        <article class="event reveal">
-          <div class="event__head">
-            <h2 class="event__title">교회 공동체 <span class="en">Church Community</span></h2>
-            <span class="event__date">2026</span>
-          </div>
-          <p class="event__desc">함께 예배하고 교제하며 나눈 은혜의 순간들입니다. Moments of grace we shared together.</p>
-          <div class="photo-grid">
-            <a href="assets/photos/gallery-1.jpg" target="_blank" rel="noopener" class="span-2">
+        <!-- ================================================================ -->
+        <!-- 앨범 카드는 tools/photos/sync_albums.py 가 생성합니다.            -->
+        <!-- 손으로 고치지 마세요 — 다음 실행 때 덮어써집니다.                -->
+        <!--                                                                  -->
+        <!-- 앨범을 추가/변경하려면:                                          -->
+        <!--   1. tools/photos/albums.txt 에 구글 포토 공유 링크를 넣고        -->
+        <!--   2. cd tools/photos && .venv/bin/python sync_albums.py          -->
+        <!-- ================================================================ -->
+        <!-- ALBUMS:START -->
+        <div class="album-grid reveal">
+          <a class="album-card" href="https://photos.google.com/share/AF1QipPcRvGT7u-xFossldNLCdTYMtrl0g08-kvQfwDwp-4fTuP2PlsSpNF82jgzGIuEfQ?key=MWJmbFZfWjFzLXdQdGRZakhjaXg5Z2x1YWxha09B" target="_blank" rel="noopener">
+            <span class="album-card__media">
               <picture>
-                <source srcset="assets/photos/gallery-1.webp" type="image/webp" />
-                <img class="photo-tile" src="assets/photos/gallery-1.jpg" alt="에덴 교회 공동체" loading="lazy" />
+                <source srcset="assets/photos/albums/2026-287d55.webp" type="image/webp" />
+                <img src="assets/photos/albums/2026-287d55.jpg" alt="2026 창립기념/교사감사주일 앨범 커버" loading="lazy" width="1200" height="675" />
               </picture>
-            </a>
-            <a href="assets/photos/gallery-2.jpg" target="_blank" rel="noopener">
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2026 창립기념/교사감사주일</span>
+              <span class="album-card__date">May 30 – 31</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipMy02JmlntVambK30v-z7ugwC_PbqdjtPlwZiRy9wSp04zwGiv3-_AqHLQLlZAVFw?key=Mlp2VGVVZFY5OGJLNWpBMFBDa01ia1dYVEpSOUlB" target="_blank" rel="noopener">
+            <span class="album-card__media">
               <picture>
-                <source srcset="assets/photos/gallery-2.webp" type="image/webp" />
-                <img class="photo-tile" src="assets/photos/gallery-2.jpg" alt="에덴 교회 공동체" loading="lazy" />
+                <source srcset="assets/photos/albums/2026-summer-youth-retreat.webp" type="image/webp" />
+                <img src="assets/photos/albums/2026-summer-youth-retreat.jpg" alt="2026 summer youth retreat 앨범 커버" loading="lazy" width="1200" height="675" />
               </picture>
-            </a>
-            <a href="assets/photos/gallery-3.jpg" target="_blank" rel="noopener">
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2026 summer youth retreat</span>
+              <span class="album-card__date">Jul 14 – 21</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipNMZlQHgZDbjyG6sI-vphCLpiApGtipErc3_kDnMeHm7PdBU-iaKHvyRt9qGYoRcQ?key=NGJzMms3TXJ3TDhiamJ3VjVVLUdXWklndjFQTGVR" target="_blank" rel="noopener">
+            <span class="album-card__media">
               <picture>
-                <source srcset="assets/photos/gallery-3.webp" type="image/webp" />
-                <img class="photo-tile" src="assets/photos/gallery-3.jpg" alt="에덴 교회 공동체" loading="lazy" />
+                <source srcset="assets/photos/albums/2026-74e8c2.webp" type="image/webp" />
+                <img src="assets/photos/albums/2026-74e8c2.jpg" alt="2026 졸업예배 / 한글학교졸업식 앨범 커버" loading="lazy" width="1200" height="675" />
               </picture>
-            </a>
-            <a href="assets/photos/gallery-4.jpg" target="_blank" rel="noopener">
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2026 졸업예배 / 한글학교졸업식</span>
+              <span class="album-card__date">Jun 6 – 7</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipPeV0x7yhgYgAtEvih35JFA8SB1MdPtYxQ9SbzguROF_9NJ0c2Lb5UOu81MGts_kA?key=NXRaX0xKUjlwdjFfc2EzNXlrbURjTXpLUVphQVJB" target="_blank" rel="noopener">
+            <span class="album-card__media">
               <picture>
-                <source srcset="assets/photos/gallery-4.webp" type="image/webp" />
-                <img class="photo-tile" src="assets/photos/gallery-4.jpg" alt="에덴 교회 공동체" loading="lazy" />
+                <source srcset="assets/photos/albums/2026-easter.webp" type="image/webp" />
+                <img src="assets/photos/albums/2026-easter.jpg" alt="2026 Easter 앨범 커버" loading="lazy" width="1200" height="675" />
               </picture>
-            </a>
-            <a href="assets/photos/gallery-5.jpg" target="_blank" rel="noopener">
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2026 Easter</span>
+              <span class="album-card__date">Sunday, Apr 5</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipMGbzhX2y7t6EvQP_-QGdXZMingaOtn5zctWrrs2gFZmAk3TmDlBtqlyEjOfK839g?key=MjFoTHNLUGJfVXNSXzc4MTJ0TWRXendnTWllOHRn" target="_blank" rel="noopener">
+            <span class="album-card__media">
               <picture>
-                <source srcset="assets/photos/gallery-5.webp" type="image/webp" />
-                <img class="photo-tile" src="assets/photos/gallery-5.jpg" alt="에덴 교회 공동체" loading="lazy" />
+                <source srcset="assets/photos/albums/youth-retreat-2025-menucha-retreat-and-conference-center.webp" type="image/webp" />
+                <img src="assets/photos/albums/youth-retreat-2025-menucha-retreat-and-conference-center.jpg" alt="Youth Retreat - 2025 Menucha Retreat and Conference Center 앨범 커버" loading="lazy" width="1200" height="675" />
               </picture>
-            </a>
-          </div>
-          <!-- Optional related videos for this event -->
-          <div class="event__videos">
-            <a class="video-link" href="https://www.youtube.com/@EdenPresbyterianChurch/streams" target="_blank" rel="noopener">
-              <span class="video-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg></span>
-              <span class="video-link__text">예배 영상 보기 <span class="en">Watch on YouTube</span></span>
-            </a>
-          </div>
-        </article>
-
-        <!--
-        ================= HOW TO ADD A NEW EVENT =====================
-        Copy the block below, paste it ABOVE this comment (newest first),
-        and edit the title/date/description. Put photos in
-        assets/photos/events/<your-event>/ and update the src paths.
-        Remove the .event__videos block if there are no videos.
-
-        <article class="event reveal">
-          <div class="event__head">
-            <h2 class="event__title">행사 이름 <span class="en">Event Name</span></h2>
-            <span class="event__date">2026. 12. 25</span>
-          </div>
-          <p class="event__desc">행사에 대한 간단한 설명.</p>
-          <div class="photo-grid">
-            <a href="assets/photos/events/my-event/01.jpg" target="_blank" rel="noopener">
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">Youth Retreat - 2025 Menucha Retreat and Conference Center</span>
+              <span class="album-card__date">Wednesday, Jul 2, 2025</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipNBi2QY6WqmIRLGx1EtqOHKJdEbFp-k5G4gh2LptHFT9l5jBct_C4zjX9_DcYMsDA?key=dEFkemVXTUNCZnlUUmptZUNOdG9tSDNxR0RGbU1R" target="_blank" rel="noopener">
+            <span class="album-card__media">
               <picture>
-                <source srcset="assets/photos/events/my-event/01.webp" type="image/webp" />
-                <img class="photo-tile" src="assets/photos/events/my-event/01.jpg" alt="행사 사진" loading="lazy" />
+                <source srcset="assets/photos/albums/2025-eden-vbs.webp" type="image/webp" />
+                <img src="assets/photos/albums/2025-eden-vbs.jpg" alt="2025 EDEN VBS 앨범 커버" loading="lazy" width="1200" height="675" />
               </picture>
-            </a>
-          </div>
-          <div class="event__videos">
-            <a class="video-link" href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank" rel="noopener">
-              <span class="video-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5Z"/></svg></span>
-              <span class="video-link__text">영상 제목 <span class="en">Watch</span></span>
-            </a>
-          </div>
-        </article>
-        ==============================================================
-        -->
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2025 EDEN VBS</span>
+              <span class="album-card__date">Jun 19 – 22, 2025</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipPLVFJXviKLp9RbglqenTggXbLAZZ_PQYvjzQywBBfCl5ukvMwLsPg2fQ_Hr8iTkQ?key=bGsycUlZM1g0c1BkNFpOQWJGaVMzUXNLVXk4Y2tB" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/30-c816e1.webp" type="image/webp" />
+                <img src="assets/photos/albums/30-c816e1.jpg" alt="창립30주년기념 및 임직식 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">창립30주년기념 및 임직식</span>
+              <span class="album-card__date">Sunday, Jun 8, 2025</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipP-dAVuzOJCxF1GAxwoxmfddrxEl_rFSthSQstFSJMNOWOZaaut_7D77HXcNVgWeQ?key=bGlnbDFNd3pzY3F4aFFoTERkWGxKRm13TWdaaTl3" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2025-e2b7e4.webp" type="image/webp" />
+                <img src="assets/photos/albums/2025-e2b7e4.jpg" alt="2025년 한글학교 졸업식 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2025년 한글학교 졸업식</span>
+              <span class="album-card__date">Sunday, Jun 8, 2025</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipNE1ztG15Nx0YyCty3gapWIWbTeGDPkUxNQb9GbD82XWudJuJaMk3bESnA1xoikgQ?key=SUZHQ1h1aThDOFZ4QVBnN08zVDhwYmxUUlgySnhn" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/album-1867a8.webp" type="image/webp" />
+                <img src="assets/photos/albums/album-1867a8.jpg" alt="어버이 주일 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">어버이 주일</span>
+              <span class="album-card__date">Sunday, May 11, 2025</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipPhDkYkHfAhFwJzLs51PWMKVLwsHcWvZpZpUXe33OqvBYjQFHOPVOqPlfm0f0EDKA?key=UlhJaVd0X2lQSFUwUWdZaUxlRlozMHNIREVWbFFR" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2025-easter-sunday.webp" type="image/webp" />
+                <img src="assets/photos/albums/2025-easter-sunday.jpg" alt="2025 Easter Sunday 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2025 Easter Sunday</span>
+              <span class="album-card__date">Sunday, Apr 20, 2025</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipPEftf74L3P-0eVwuKLtDaBVTyb2EyKaiWCnWoZVGHJOUlV7CcAWy3ec8LlhJSK-g?key=aEN2NTk2NHdnZnI3LUNORlBoOVY1U0Z4Z2NhNlRR" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2024-thanks-giving.webp" type="image/webp" />
+                <img src="assets/photos/albums/2024-thanks-giving.jpg" alt="2024 Thanks giving 유아세례 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2024 Thanks giving 유아세례</span>
+              <span class="album-card__date">Sunday, Nov 24, 2024</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipNhPIc44YzcK0qUD8ezTf8rPxfGH1WM0P2Ke_DfhHOo9NMJxVjoMzJpccDSR64IOw?key=VjNUOEgtX2xqaFRldXVzcU9xVXRudklaSU5xWFdn" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2024-3a82d4.webp" type="image/webp" />
+                <img src="assets/photos/albums/2024-3a82d4.jpg" alt="2024 오레곤벤쿠버 선교대회 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2024 오레곤벤쿠버 선교대회</span>
+              <span class="album-card__date">Sep 6 – 7, 2024</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipP_ZA5TNBEYpaHOMXVttSIb69tHyCff4Iw6sRN1MJNJYudYBQFsSffmragyUlHLkw?key=ZWtSQV9OcTJhcTRoekg0LXg0enV5Ujd2TGF1WTVR" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2024-bf522e.webp" type="image/webp" />
+                <img src="assets/photos/albums/2024-bf522e.jpg" alt="2024 야외예배 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2024 야외예배</span>
+              <span class="album-card__date">Sunday, Sep 1, 2024</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipMsDdBRCNwtg1Ij4Cqp4N-SRgnL9m21HYNS4OZF4SItU19SRYPpAfV_oJRg_7-xKQ?key=T2FXeUlwTjZkRUdaUlF4cFZ2ZFFzZkxjX3BSY0ZR" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2024-1da0cb.webp" type="image/webp" />
+                <img src="assets/photos/albums/2024-1da0cb.jpg" alt="2024 졸업 예배 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2024 졸업 예배</span>
+              <span class="album-card__date">Sunday, Jun 16, 2024</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipNnRP4wvWaDQ0HKv1ztFktUly5zsQQ3RJR25-IAgX598ObH8SMun-KRabpi-Yj58g?key=YWxLa1kta3dCYXNpQTFTZ1VrSUoxZEFkdnZTRll3" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2024-5cd97f.webp" type="image/webp" />
+                <img src="assets/photos/albums/2024-5cd97f.jpg" alt="2024 창립기념 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2024 창립기념</span>
+              <span class="album-card__date">Sunday, May 19, 2024</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipMBRGG9boZZcU0Pp-QycL6vyDO02Gb1Shz0S3CaNQe3qSFTuk42XNQYFUkEzIwm2Q?key=V3ZMTXFXU0MzQlBlZGUtNkdKc01hZ21rbm95RE1n" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2024-38abbf.webp" type="image/webp" />
+                <img src="assets/photos/albums/2024-38abbf.jpg" alt="2024 어린이 주일 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2024 어린이 주일</span>
+              <span class="album-card__date">Sunday, May 5, 2024</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipO1lFtHBVBiRHPfPPBnqHsaqO1v8ohC6Tzfw_KZgkWGsGGaaoC0ZJdlyJgtfcmiig?key=OHg0RzdLbEN2VlJIamdTVldpNDVraGNpUUFoeVpn" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2023-50993c.webp" type="image/webp" />
+                <img src="assets/photos/albums/2023-50993c.jpg" alt="2023 졸업&amp;입교 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2023 졸업&amp;입교</span>
+              <span class="album-card__date">Sunday, Jun 25, 2023</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipPdXcnxinSqur_vd96HDJkEKX8SQkwW705bs-OJ7RhkDrpojzVKTXzmoJqE2WImTQ?key=TzFkaFNZR1JRYVpJdjdKZzJqY29YZHZNUGQxa3p3" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/menucha-retreat-winter-2023.webp" type="image/webp" />
+                <img src="assets/photos/albums/menucha-retreat-winter-2023.jpg" alt="Menucha Retreat Winter 2023 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">Menucha Retreat Winter 2023</span>
+              <span class="album-card__date">Wednesday, Dec 20, 2023</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipOML3Z7AXRqf-q6zEV1sI5sp36feEAzqXTo3SCwrg9qDX4YJzU-rWzwfigUr0Ei4Q?key=LUVIRUJ2NlBScFloa0lOTklkV3BhMUpxVHN1OF9B" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2023-summer-youth-retreat.webp" type="image/webp" />
+                <img src="assets/photos/albums/2023-summer-youth-retreat.jpg" alt="2023 Summer Youth Retreat 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2023 Summer Youth Retreat</span>
+              <span class="album-card__date">Aug 23 – 24, 2023</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipMcaYGaF8xAywaBH2SkTsSYUrrNZ_DWHt8sQBP7UHfku080fL_k1e-kfUyYjLoAnQ?key=dEZfMHJ6NVhuTjNsMHhYc0IxQWVfZFNHUDBqbE1R" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/vbs2023.webp" type="image/webp" />
+                <img src="assets/photos/albums/vbs2023.jpg" alt="VBS2023 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">VBS2023</span>
+              <span class="album-card__date">Dec 31, 2011 – Aug 19, 2023</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipNRo4QNYeWTqHdCl8OkljKfDMMbmig4kjRbYcFcQLVrAOxrHFIAsNIAzZO4JyBR-A?key=N2tlcGg4b1NxbUhVa1p6ZFp1amxmWTEzREZiVXZR" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/easter-2023.webp" type="image/webp" />
+                <img src="assets/photos/albums/easter-2023.jpg" alt="Easter 2023 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">Easter 2023</span>
+              <span class="album-card__date">Dec 31, 2011 – Apr 9, 2023</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipOmKO4n3QjBLSf9ItTY48yE4R_s9MTl2hJRN0WVpETf75E7KHZq6i6JhPXNMuzxNQ?key=Z0tieFk5ZldKZVRKZ2FOcTFGSFZIclUybHZSQkd3" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2022-christmas.webp" type="image/webp" />
+                <img src="assets/photos/albums/2022-christmas.jpg" alt="2022 Christmas 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2022 Christmas</span>
+              <span class="album-card__date">Sunday, Dec 25, 2022</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipOMg2V9b0IqRcthKOoJbLj4eN5B9lp98xa40bOqlotYdhSif0bMkZ97j-MX4EDciQ?key=TlBjMm5OSzQxS21zZGk3T3JlXzQzcDgxQmpFdDN3" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2019-thanks-giving.webp" type="image/webp" />
+                <img src="assets/photos/albums/2019-thanks-giving.jpg" alt="2019 Thanks giving 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2019 Thanks giving</span>
+              <span class="album-card__date">Sunday, Nov 24, 2019</span>
+            </span>
+          </a>
+          <a class="album-card" href="https://photos.google.com/share/AF1QipM6zHC0dnp5DFWtQ3om4DH9Tg17ZlcXd8ZItr753QZM0tJrPZm6QJNLLKCllGG36A?key=ZFNKM3R0X1cwSTBCN2h1V0NxODZKaUVNYWgzU19n" target="_blank" rel="noopener">
+            <span class="album-card__media">
+              <picture>
+                <source srcset="assets/photos/albums/2018-thanks-giving.webp" type="image/webp" />
+                <img src="assets/photos/albums/2018-thanks-giving.jpg" alt="2018 Thanks giving 앨범 커버" loading="lazy" width="1200" height="675" />
+              </picture>
+            </span>
+            <span class="album-card__body">
+              <span class="album-card__title">2018 Thanks giving</span>
+              <span class="album-card__date">Sunday, Nov 18, 2018</span>
+            </span>
+          </a>
+        </div>
+        <!-- ALBUMS:END -->
       </div>
     </section>
 
