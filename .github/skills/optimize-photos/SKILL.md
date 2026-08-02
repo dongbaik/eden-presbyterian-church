@@ -76,7 +76,7 @@ Defined in [process_images.py](./scripts/process_images.py) as the `SLOTS` list:
 | --- | --- | --- |
 | `hero` | 16:9 | 2000×1125 |
 | `about` | 4:3 | 1200×900 |
-| `mission-1` … `mission-3` | 16:9 | 900×506 |
+| `mission-1` … `mission-6` | 16:9 | 900×506 |
 | `gallery-1` | 16:9 | 1200×675 |
 | `gallery-2` … `gallery-5` | 1:1 | 700×700 |
 
