@@ -58,7 +58,7 @@ SCOPES = ["https://www.googleapis.com/auth/photospicker.mediaitems.readonly"]
 PICKER_API = "https://photospicker.googleapis.com/v1"
 
 REQUEST_TIMEOUT = 60  # seconds per HTTP request
-SELECTION_TIMEOUT = 600  # seconds to wait for the user to pick photos
+SELECTION_TIMEOUT = 1800  # seconds to wait for the user to pick photos
 
 ADC_LOGIN_HINT = (
     "Authorise gcloud Application Default Credentials once (opens a browser —\n"
