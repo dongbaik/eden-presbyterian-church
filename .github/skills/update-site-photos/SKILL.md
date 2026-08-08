@@ -20,6 +20,7 @@ Fills the fixed image slots on [index.html](../../../index.html) and
 | `hero` | 16:9 | 2000×1125 | Home page hero background |
 | `about` | 4:3 | 1200×900 | About section photo |
 | `mission-1` … `mission-6` | 16:9 | 900×506 | Mission cards |
+| `edu-1` … `edu-3` | 16:9 | 900×506 | Sunday school cards (education.html) |
 | `gallery-1` | 16:9 | 1200×675 | Home photo grid, wide tile |
 | `gallery-2` … `gallery-5` | 1:1 | 700×700 | Home photo grid, square tiles |
 
