@@ -712,6 +712,7 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
 }
 .media-frame picture { display: block; }
 .media-frame img { display: block; width: 100%; height: auto; }
+.media-frame--award { max-width: 240px; margin-inline: auto; }
 
 /* Chip list (mission fields, tags) */
 .chip-list {
