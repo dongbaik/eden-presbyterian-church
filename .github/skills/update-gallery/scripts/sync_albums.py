@@ -274,7 +274,7 @@ def render_cards(albums: list[Album]) -> str:
           </a>""")
 
     return (
-        '        <div class="album-grid reveal">\n'
+        '        <div class="album-grid">\n'
         + "\n".join(cards)
         + "\n        </div>"
     )
