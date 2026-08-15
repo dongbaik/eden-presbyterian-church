@@ -39,6 +39,58 @@
     });
   }
 
+  /* --- Newcomer registration QR dialog --- */
+  const qrTriggers = document.querySelectorAll("[data-qr-dialog]");
+  if (qrTriggers.length) {
+    const registrationUrl = "https://forms.gle/TqHZK4pUQ7dxFtd66";
+    const qrDialog = document.createElement("dialog");
+
+    qrDialog.className = "qr-dialog";
+    qrDialog.setAttribute("aria-labelledby", "qrDialogTitle");
+    qrDialog.innerHTML = `
+      <div class="qr-dialog__content">
+        <button class="qr-dialog__close" type="button" aria-label="닫기">&times;</button>
+        <span class="eyebrow">Newcomer Registration</span>
+        <h2 class="qr-dialog__title" id="qrDialogTitle">새신자 등록 QR</h2>
+        <img class="qr-dialog__image" src="assets/newcomer-registration-qr.png" width="640" height="640" alt="새신자 등록 구글폼 QR 코드" />
+        <p class="qr-dialog__text">휴대폰 카메라로 QR 코드를 스캔해 등록 폼을 열어 주세요.</p>
+        <a class="link-arrow qr-dialog__link" href="${registrationUrl}" target="_blank" rel="noopener">등록 폼 직접 열기</a>
+      </div>`;
+    document.body.appendChild(qrDialog);
+
+    const restoreQrDialogState = function () {
+      document.body.style.overflow = "";
+      const mobileMenuVisible = navToggle && getComputedStyle(navToggle).display !== "none";
+      const focusTarget = mobileMenuVisible ? navToggle : navTools.querySelector("summary");
+      if (focusTarget) focusTarget.focus();
+    };
+
+    const closeQrDialog = function () {
+      if (qrDialog.open) qrDialog.close();
+      restoreQrDialogState();
+    };
+
+    qrTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        if (navTools) navTools.removeAttribute("open");
+        if (primaryNav) primaryNav.classList.remove("is-open");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "hidden";
+        qrDialog.showModal();
+      });
+    });
+
+    qrDialog.querySelector(".qr-dialog__close").addEventListener("click", function () {
+      closeQrDialog();
+    });
+
+    qrDialog.addEventListener("click", function (event) {
+      if (event.target === qrDialog) closeQrDialog();
+    });
+
+    qrDialog.addEventListener("close", restoreQrDialogState);
+  }
+
   /* --- Header shadow on scroll --- */
   const header = document.querySelector(".site-header");
   const onScroll = function () {

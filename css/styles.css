@@ -313,16 +313,63 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-md);
 }
-.primary-nav__list .nav-tools__menu a {
+.primary-nav__list .nav-tools__menu a,
+.primary-nav__list .nav-tools__menu button {
   display: block;
+  width: 100%;
   padding: 0.65rem 0.8rem;
+  color: var(--text);
+  background: transparent;
+  border: 0;
   border-radius: 8px;
+  font-family: inherit;
   font-size: 0.92rem;
+  font-weight: 500;
+  line-height: inherit;
+  text-align: left;
   white-space: nowrap;
+  cursor: pointer;
 }
 .primary-nav__list .nav-tools__menu a::after { display: none; }
-.primary-nav__list .nav-tools__menu a:hover { background: var(--primary-tint); }
+.primary-nav__list .nav-tools__menu a:hover,
+.primary-nav__list .nav-tools__menu button:hover { color: var(--primary); background: var(--primary-tint); }
 .primary-nav__cta { padding: 0.72rem 1.35rem; font-size: 0.9rem; }
+
+/* QR dialog */
+.qr-dialog {
+  width: min(92vw, 430px);
+  max-width: none;
+  padding: 0;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.qr-dialog::backdrop { background: rgba(18, 32, 24, 0.62); backdrop-filter: blur(4px); }
+.qr-dialog__content { position: relative; padding: 2rem; text-align: center; }
+.qr-dialog__close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.qr-dialog__close:hover { color: var(--text); background: var(--surface); }
+.qr-dialog__title { margin-bottom: 1.25rem; font-size: 1.55rem; }
+.qr-dialog__image { width: min(100%, 320px); height: auto; margin: 0 auto 1rem; }
+.qr-dialog__text { color: var(--muted); font-size: 0.95rem; }
+.qr-dialog__link { margin-top: 0.35rem; }
 
 /* Mobile toggle */
 .nav-toggle {
@@ -1318,7 +1365,8 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
     background: var(--primary-tint);
   }
   .primary-nav__list .nav-tools__menu li { border-bottom: 0; }
-  .primary-nav__list .nav-tools__menu a { padding: 0.7rem 0.75rem; font-size: 0.96rem; }
+  .primary-nav__list .nav-tools__menu a,
+  .primary-nav__list .nav-tools__menu button { padding: 0.7rem 0.75rem; font-size: 0.96rem; }
   .primary-nav__cta { margin-top: 1.1rem; width: 100%; padding: 0.9rem 1.7rem; font-size: 0.98rem; }
 }
 
