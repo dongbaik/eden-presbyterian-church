@@ -7,6 +7,7 @@
   /* --- Mobile navigation toggle --- */
   const navToggle = document.getElementById("navToggle");
   const primaryNav = document.getElementById("primaryNav");
+  const navTools = document.querySelector(".nav-tools details");
 
   if (navToggle && primaryNav) {
     navToggle.addEventListener("click", function () {
@@ -17,9 +18,23 @@
 
     primaryNav.addEventListener("click", function (event) {
       if (event.target.closest("a")) {
+        if (navTools) navTools.removeAttribute("open");
         primaryNav.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
+      }
+    });
+  }
+
+  if (navTools) {
+    document.addEventListener("click", function (event) {
+      if (!navTools.contains(event.target)) navTools.removeAttribute("open");
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navTools.open) {
+        navTools.removeAttribute("open");
+        navTools.querySelector("summary").focus();
       }
     });
   }

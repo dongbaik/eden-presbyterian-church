@@ -15,6 +15,33 @@
     ],
     "cleanUrls": false,
     "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/admin",
+        "destination": "https://sites.google.com/oregoneden.com/shortcuts/home",
+        "type": 302
+      },
+      {
+        "source": "/register",
+        "destination": "https://docs.google.com/forms/d/1aTk9dCVxe52j-qNbUEu53YLv6nqeKsoOHEpmhjjlat8/edit?ts=63bb2c57",
+        "type": 302
+      },
+      {
+        "source": "/expense",
+        "destination": "https://forms.gle/U949VKoMd3LEBZMC6",
+        "type": 302
+      },
+      {
+        "source": "/announce",
+        "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdymWxROOG1-JYhZuMW9nA-XqGNbNrh9N8ufqD1ypI8yBknOg/viewform",
+        "type": 302
+      },
+      {
+        "source": "/3fold",
+        "destination": "https://pdf-slicer-382953519609.us-west1.run.app/",
+        "type": 302
+      }
+    ],
     "headers": [
       {
         "source": "**/*.@(jpg|jpeg|gif|png|webp|svg|mp4|ico|woff|woff2)",
