@@ -20,6 +20,42 @@
 # 아래 주석의 이름은 참고용이며, 실제 제목은 앨범에서 자동으로 가져옵니다.
 
 # --- 2026 ---
+# --- 새로 추가된 앨범 (원하는 위치로 옮기세요) ---
+# 2026 Summer picnic
+https://photos.google.com/share/AF1QipM9h4iSfNP7yTYlo_H3eoAoeQYHWcfnjSSHkabnIYm2U59HqovlJTtucNPCnA1QTg?key=Z1lIazctZTRKVlZ1Q2VuOGQ0c01WdDNOM1huSDZR
+# 2022 Dec Baptism
+https://photos.google.com/share/AF1QipMrWbve6b0sCJT-t3ye_YveslLcQavTXN81ZhL2Acb2Hy1-EYPaQKze69UyIypXww?key=WE90SGx4TUZfYW41cVpLOGwybUR3TlBIdjZWcEJn
+# 2022 감사주일 임직예배
+https://photos.google.com/share/AF1QipMne3w8tchHaNEurAH0HyPiwEYiG8rssKdTcycZsHqpH_yJ3nSvhDPBlJhQdNfqgQ?key=ZjVRT09ib290TGtMb2dNZVBiUHU1T2dYVWhrUlpB
+# Eden Construction
+https://photos.google.com/share/AF1QipM1iL1jtaFD3ZgiR_RLMYlKDYwVUvgvvPLtYEnAp7meLCPLN-NrUfjvrtPz04r5Rg?key=dnlCRkpnOTJpRHJaYndaRzNlaVU5dV9qeFVrYkJR
+# 2022 Graduation Service
+https://photos.google.com/share/AF1QipPViJbEI9BlsIO5NYBUbt4FxjMIJq8GKMavTYamqrNtoBXM6s1ksxpwING0HyAjGw?key=MURVSHNmZDV5OFQ1bTF3RFdHN0p2WlhJSE5mWXJR
+# 2021 Graduation
+# key 없음(소유자 전용): https://photos.google.com/share/AF1QipPrJkGz1NrSnNg6xsXgiJ45cL4anZ2Md_HeTyNx-S-BMll-aTVQn8bTmB1HVhcoEQ
+# 2020 가정의달 drive-thru
+https://photos.google.com/share/AF1QipPEpkXt9EYRDDRoTC6O2_ZZXEkvxaZTUPCJdCNaMR2t2UeBQ45dso0YoPtouXMG8w?key=TFdLOFZQdUF3M2kzaFJIQ2dOOTJqVHo4LWxDTkx3
+# 2022 Easter 세례와 입교
+https://photos.google.com/share/AF1QipNpzH2PIkYNXwNLAK0BseSK8MyrZDNQPFV0AZe84egZwse__B3ev8BsS4QCoEWBPQ?key=ZjAwN0l1V1JWRmE2akJ0WTZfZzgtWmZTZVVrOTdR
+# 창립 27주년 임직예배
+https://photos.google.com/share/AF1QipNtt9ovaAws1zHRcqGCETnPAE5MKLxD1sSMt9C8zCoOcjYbDexXi7guyCorAD4kVQ?key=NXJpc25tQ2xYSmY0anI1bDVnalRDZWdEUXNhcXhR
+# 2019 김윤조 장로장립
+https://photos.google.com/share/AF1QipM9IzJ0m-Xf7mopkr5BPGC--zl3NZWt1ScWlpv9hxtV3x94hUH8qYyXm9HcL0yZew?key=VDd6Rzl4MnlOMjEtYVlUVE92WXgtbVl2RGlOc0xR
+# Past Thanksgiving
+# key 없음(소유자 전용): https://photos.google.com/share/AF1QipNWefDJaXbSpYkdc0K6JcT4ZAplUJuwJoKkZR33yEQJUeASvDj2nBM0jlyy_cH7wg
+# 2019 Easter
+https://photos.google.com/share/AF1QipOiJZj1LFsDkJRLFZTYq_-Kw7QMqj8h1d0y6KSxSDIS5myosbpMMBt-M9LLoLPJXw?key=dHVCQ05BblYyY09aSXdtVnlncHVsc2RZMnF5c3FR
+# 2018 선교대회
+https://photos.google.com/share/AF1QipNrIbMAH8J5tt_2u6t-srZiR33GTUCeFTf4uSWMafaiKf6B2hxJIRf6zpDj4P4_BA?key=NHBMX3c0ajltNnQ0Rk94bElMTktncDFMMEZtbXBR
+# 2018 Easter Confirmation
+https://photos.google.com/share/AF1QipM9StGUuzGg1wHrKz0d_ouFo8eiKFwVB9ll3mWv8gpJ1vyvc4F_MnbyuZ7EV2ghbw?key=ZmgyMER2d2xiTEFIcW9UMTl3V2E3dnRJWFp2Wl9B
+# 2017 Thanksgiving
+https://photos.google.com/share/AF1QipPy1FJuNOt-yF3OaCG-0BINfp-TnICd5YLiMNX_aXCTT9mk0o8xFXVeN9sCRIxg8w?key=TjUtRXNkV0ZKRXRmdF9zdWxUNzd1a2RnYmZuUXZR
+# 에덴 2017 집사권사 임직식
+https://photos.google.com/share/AF1QipN5xt3LZxr8EhBmGSwXB6OUs8x9USDy4euQ4xIf_CiJC3xrewYwpIjUCKcQ26WJQg?key=WVZUNXRFN2tSQm1nSW9mN2NBMEJGTERVdnRObEVR
+# Honduras 2010
+https://photos.google.com/share/AF1QipMGgqK_0YKGF3FssXFqR0Rt4CeOS9J5318zJ5Z537-dLzXBheXHtVln59u0gVRYBw?key=ZWlSbEw3M3VUVUVyaDctU01Ed3VCb1VJU1JLbUJ3
+
 https://photos.google.com/share/AF1QipPcRvGT7u-xFossldNLCdTYMtrl0g08-kvQfwDwp-4fTuP2PlsSpNF82jgzGIuEfQ?key=MWJmbFZfWjFzLXdQdGRZakhjaXg5Z2x1YWxha09B
 https://photos.google.com/share/AF1QipMy02JmlntVambK30v-z7ugwC_PbqdjtPlwZiRy9wSp04zwGiv3-_AqHLQLlZAVFw?key=Mlp2VGVVZFY5OGJLNWpBMFBDa01ia1dYVEpSOUlB
 https://photos.google.com/share/AF1QipNMZlQHgZDbjyG6sI-vphCLpiApGtipErc3_kDnMeHm7PdBU-iaKHvyRt9qGYoRcQ?key=NGJzMms3TXJ3TDhiamJ3VjVVLUdXWklndjFQTGVR

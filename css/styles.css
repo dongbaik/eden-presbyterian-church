@@ -915,6 +915,32 @@ table.tbl td strong { color: var(--text); font-weight: 600; }
 .info-card__text { color: var(--muted); font-size: 0.96rem; margin: 0 0 1.2rem; }
 .info-card__foot { margin-top: auto; }
 
+.past-ministries {
+  padding: 1.4rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-2);
+}
+.past-ministries__head { margin-bottom: 1rem; }
+.past-ministries__head h3 { font-size: 1.2rem; margin: 0.2rem 0 0.35rem; }
+.past-ministries__head p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+.past-ministries__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.past-ministry { padding-top: 0.9rem; border-top: 1px solid var(--line); }
+.past-ministry h4 { font-size: 1rem; margin-bottom: 0.35rem; }
+.past-ministry h4 span {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.past-ministry p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+
+@media (max-width: 600px) {
+  .past-ministries__grid { grid-template-columns: 1fr; }
+}
+
 /* ------------------------------- Calendar -------------------------------- */
 .embed-card {
   border-radius: var(--radius);

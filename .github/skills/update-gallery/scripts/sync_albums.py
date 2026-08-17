@@ -41,6 +41,7 @@ import re
 import sys
 import unicodedata
 from dataclasses import dataclass, asdict
+from datetime import date as calendar_date
 from html.parser import HTMLParser
 from io import BytesIO
 from pathlib import Path
@@ -251,6 +252,40 @@ class Album:
     cover_webp: str
 
 
+_MONTHS = {
+    month: index
+    for index, month in enumerate(
+        ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+        1,
+    )
+}
+_MONTH_DAY = re.compile(
+    r"\b(" + "|".join(_MONTHS) + r")[a-z]*\s+(\d{1,2})(?:,\s*(\d{4}))?",
+    re.IGNORECASE,
+)
+_SHORT_RANGE_END = re.compile(r"[–-]\s*(\d{1,2})(?:,\s*(\d{4}))?\s*$")
+_YEAR = re.compile(r"(?<!\d)((?:19|20)\d{2})(?!\d)")
+
+
+def album_sort_date(album: Album) -> calendar_date:
+    """Return the album's best event date for newest-first ordering."""
+    matches = list(_MONTH_DAY.finditer(album.date))
+    if not matches:
+        return calendar_date.min
+
+    last = matches[-1]
+    month = _MONTHS[last.group(1).title()[:3]]
+    day = int(last.group(2))
+    short_end = _SHORT_RANGE_END.search(album.date)
+    if short_end:
+        day = int(short_end.group(1))
+
+    title_years = _YEAR.findall(album.title)
+    date_years = _YEAR.findall(album.date)
+    year = int((title_years or date_years or [str(calendar_date.today().year)])[-1])
+    return calendar_date(year, month, day)
+
+
 def render_cards(albums: list[Album]) -> str:
     """Return the markup for the album grid, ready to sit between the markers."""
     cards = []
@@ -364,6 +399,8 @@ def main() -> int:
 
     if not albums:
         sys.exit("\nERROR: no albums could be collected — nothing was written.")
+
+    albums.sort(key=album_sort_date, reverse=True)
 
     if args.dry_run:
         print(f"\nDry run: {len(albums)} album(s) resolved, no files written.")
