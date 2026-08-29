@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "oregon-eden-church-3b37b",
     "public": ".",
     "ignore": [
       "firebase.json",
