@@ -187,6 +187,8 @@ p:last-child { margin-bottom: 0; }
 .btn--youtube { background-color: #ff0033; color: var(--white); }
 .btn--youtube:hover { background-color: #d60029; color: var(--white); }
 
+.welcome__actions { margin-top: 1.5rem; }
+
 /* ------------------------------- Header ---------------------------------- */
 .site-header {
   position: sticky;
