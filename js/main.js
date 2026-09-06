@@ -4,6 +4,33 @@
 (function () {
   "use strict";
 
+  const configuredTheme = "summer";
+  const seasonalThemes = ["spring", "summer", "autumn", "winter"];
+  const previewTheme = new URLSearchParams(window.location.search).get("theme");
+  const month = new Date().getMonth() + 1;
+  const automaticTheme = month >= 3 && month <= 5
+    ? "spring"
+    : month >= 6 && month <= 8
+      ? "summer"
+      : month >= 9 && month <= 11
+        ? "autumn"
+        : "winter";
+  const activeTheme = seasonalThemes.includes(previewTheme)
+    ? previewTheme
+    : configuredTheme === "auto"
+      ? automaticTheme
+      : configuredTheme;
+  const themeColors = {
+    spring: "#65935c",
+    summer: "#2d8a63",
+    autumn: "#69755b",
+    winter: "#256047"
+  };
+
+  document.documentElement.dataset.theme = activeTheme;
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  if (themeColor) themeColor.setAttribute("content", themeColors[activeTheme]);
+
   /* --- Mobile navigation toggle --- */
   const navToggle = document.getElementById("navToggle");
   const primaryNav = document.getElementById("primaryNav");
