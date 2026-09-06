@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  const configuredTheme = "summer";
+  const configuredTheme = "auto";
   const seasonalThemes = ["spring", "summer", "autumn", "winter"];
   const previewTheme = new URLSearchParams(window.location.search).get("theme");
   const month = new Date().getMonth() + 1;
