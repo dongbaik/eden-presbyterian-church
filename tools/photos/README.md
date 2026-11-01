@@ -43,7 +43,8 @@ tools/photos/.venv/bin/python .github/skills/update-gallery/scripts/sync_albums.
 ## Google Photos access
 
 `sync_albums.py` needs **no** credentials — it reads the public OpenGraph tags
-of albums that already have link sharing turned on.
+of albums that already have link sharing turned on. It also runs daily on
+GitHub Actions; see the `update-gallery` skill's *Automatic daily sync*.
 
 `fetch_photos.py` uses the **Photos Picker API** and needs a Desktop OAuth
 client at `tools/photos/credentials.json`. Always run it with

@@ -1,0 +1,97 @@
+name: Sync gallery from Google Photos
+
+# Refreshes the album cards on gallery.html once a day, adds album links
+# submitted through the gallery Google Form, and deploys to Firebase Hosting
+# when anything changed. See .github/skills/update-gallery/SKILL.md.
+
+on:
+  schedule:
+    - cron: "17 11 * * *" # daily, ~3-4 AM Pacific
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview only: don't commit or deploy"
+        type: boolean
+        default: false
+      force_deploy:
+        description: "Deploy even if the gallery didn't change"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  id-token: write # keyless sign-in to Google Cloud for the Firebase deploy
+
+concurrency:
+  group: sync-gallery
+  cancel-in-progress: false
+
+env:
+  FIREBASE_PROJECT: oregon-eden-church-3b37b
+  DRY_RUN: ${{ inputs.dry_run == true }}
+  FORCE_DEPLOY: ${{ inputs.force_deploy == true }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: tools/photos/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r tools/photos/requirements.txt
+
+      - name: Import links submitted through the form
+        env:
+          ALBUM_FORM_CSV_URL: ${{ secrets.ALBUM_FORM_CSV_URL }}
+        run: python .github/skills/update-gallery/scripts/import_album_links.py
+
+      - name: Refresh album cards and covers
+        run: python .github/skills/update-gallery/scripts/sync_albums.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add -A gallery.html tools/photos/albums.txt tools/photos/form_imported.txt assets/photos/albums
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Gallery is already up to date." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "### Gallery changes"
+              echo '```'
+              git diff --cached --stat
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      # Deploy before pushing: if the deploy fails, nothing is committed and
+      # the next run retries the same update. The auth step writes
+      # gha-creds-*.json into the workspace; firebase.json ignores it so it is
+      # never uploaded to the site.
+      - name: Sign in to Google Cloud
+        if: (steps.changes.outputs.changed == 'true' || env.FORCE_DEPLOY == 'true') && env.DRY_RUN != 'true'
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+
+      - name: Deploy to Firebase Hosting
+        if: (steps.changes.outputs.changed == 'true' || env.FORCE_DEPLOY == 'true') && env.DRY_RUN != 'true'
+        run: npx --yes firebase-tools@15 deploy --only hosting --project "$FIREBASE_PROJECT" --non-interactive
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true' && env.DRY_RUN != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync gallery from Google Photos (automated)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

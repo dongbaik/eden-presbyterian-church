@@ -21,6 +21,9 @@ firebase-debug.log
 firebase-debug.*.log
 .runtimeconfig.json
 
+# google-github-actions/auth credentials (CI only)
+gha-creds-*.json
+
 # Python
 __pycache__/
 *.pyc
