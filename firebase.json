@@ -12,7 +12,8 @@
       ".venv/**",
       "**/node_modules/**",
       "tools/**",
-      "README.md"
+      "README.md",
+      "gha-creds-*.json"
     ],
     "cleanUrls": false,
     "trailingSlash": false,
@@ -40,6 +41,11 @@
       {
         "source": "/3fold",
         "destination": "https://pdf-slicer-382953519609.us-west1.run.app/",
+        "type": 302
+      },
+      {
+        "source": "/addalbum",
+        "destination": "https://docs.google.com/forms/d/e/1FAIpQLScwGpBNvIamDzYd70yFRfK7CP3ARKcGlUZ4NCx12wDBxrBC0g/viewform",
         "type": 302
       }
     ],

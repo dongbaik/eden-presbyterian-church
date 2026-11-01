@@ -1,0 +1,2 @@
+# Album ids already taken from the gallery Google Form (one per line).
+# Written by import_album_links.py — remove a line to let that album be imported again.

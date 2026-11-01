@@ -20,6 +20,37 @@ date and cover come from the OpenGraph tags on its public share page.
 An album only appears on the site if its share link contains `?key=` — without
 it the link works for the owner but not for visitors.
 
+## Automatic daily sync
+
+[sync-gallery.yml](../../workflows/sync-gallery.yml) runs every day on GitHub
+Actions. It needs no Google sign-in for Photos:
+
+1. [import_album_links.py](./scripts/import_album_links.py) adds share links
+   submitted through the gallery Google Form (`oregoneden.com/addalbum`,
+   restricted to oregoneden.com accounts). The form's response sheet is
+   published as CSV and its URL is stored in the `ALBUM_FORM_CSV_URL`
+   repository secret. Processed album ids are recorded in
+   `tools/photos/form_imported.txt`, so deleting an album's line from
+   `albums.txt` keeps it off the site.
+2. `sync_albums.py` refreshes every album's title, date and cover. Covers whose
+   picture didn't change are left untouched, an album that fails to load keeps
+   its previous card, and the run aborts rather than strip the gallery if many
+   albums fail at once.
+3. If anything changed, it deploys to Firebase Hosting and commits to `main`.
+
+Deploys use keyless Workload Identity Federation: the
+`github-gallery-deploy` service account (Firebase Hosting Admin only) can be
+used solely by `main` of this repository. Its identifiers live in the
+`GCP_WORKLOAD_IDENTITY_PROVIDER` and `GCP_SERVICE_ACCOUNT` repository variables.
+
+Run it on demand from **Actions → Sync gallery from Google Photos → Run
+workflow** (`gh workflow run sync-gallery.yml`), with *dry run* to preview or
+*force deploy* to redeploy without changes.
+
+The scheduled job cannot discover albums by itself — that still requires a
+form submission or the manual procedure below. Use the manual procedure to
+sweep up albums nobody submitted, or to hide/rename albums.
+
 ## Procedure
 
 ### 1. Get a signed-in Google Photos tab

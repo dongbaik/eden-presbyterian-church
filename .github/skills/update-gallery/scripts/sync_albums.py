@@ -48,7 +48,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageChops, ImageEnhance, ImageStat
 
 # process_images.py belongs to the sibling optimize-photos skill.
 sys.path.insert(
@@ -76,6 +76,12 @@ ALLOWED_IMAGE_HOSTS_SUFFIX = ".googleusercontent.com"
 COVER_REQUEST_SIZE = "w1600-h900-p-k"
 COVER_OUTPUT_SIZE = (1200, 675)  # 16:9 card image written to the site
 COVER_ASPECT = (16, 9)
+
+# Google re-encodes the same cover slightly differently on every request.
+# Keep the existing files unless the picture visibly changed (mean per-channel
+# difference of small thumbnails, 0-255), so scheduled runs don't rewrite
+# every cover. Re-encodes measure under 1; a different photo measures 20+.
+COVER_CHANGE_THRESHOLD = 4.0
 
 # A crawler-style UA is what makes Google return the OpenGraph tags.
 USER_AGENT = "Mozilla/5.0 (compatible; EdenChurchSiteBot/1.0; +https://oregoneden.com)"
@@ -180,6 +186,11 @@ def slugify(title: str, fallback: str) -> str:
     return slug or fallback
 
 
+def album_id_of(url: str) -> str:
+    """Return the stable album identifier from a share URL."""
+    return urlparse(url).path.rstrip("/").rsplit("/", 1)[-1]
+
+
 def unique_slug(title: str, url: str, taken: set[str]) -> str:
     """Return a slug for *title* that is guaranteed not to collide.
 
@@ -188,8 +199,7 @@ def unique_slug(title: str, url: str, taken: set[str]) -> str:
     ``2024``) and overwrite each other's cover files. A short digest of the
     album's share id disambiguates those, and stays stable between runs.
     """
-    album_id = urlparse(url).path.rstrip("/").rsplit("/", 1)[-1]
-    digest = hashlib.sha1(album_id.encode("utf-8")).hexdigest()[:6]
+    digest = hashlib.sha1(album_id_of(url).encode("utf-8")).hexdigest()[:6]
 
     base = slugify(title, fallback="")
     if not base or base.isdigit() or base in taken:
@@ -218,8 +228,29 @@ def upgrade_cover_url(url: str) -> str:
     return f"{base}={COVER_REQUEST_SIZE}"
 
 
-def save_cover(session: requests.Session, cover_url: str, slug: str) -> None:
-    """Download the cover and write optimised ``.jpg`` + ``.webp`` variants."""
+def _same_picture(path: Path, img: Image.Image) -> bool:
+    """True if the cover already at *path* looks the same as *img*."""
+    try:
+        with Image.open(path) as existing:
+            existing = existing.convert("RGB")
+            if existing.size != img.size:
+                return False
+            # Compare small thumbnails so JPEG noise in busy photos is averaged out.
+            thumb = (160, 90)
+            diff = ImageStat.Stat(
+                ImageChops.difference(existing.resize(thumb, Image.BOX), img.resize(thumb, Image.BOX))
+            )
+            return max(diff.mean) <= COVER_CHANGE_THRESHOLD
+    except (OSError, ValueError):
+        return False
+
+
+def save_cover(session: requests.Session, cover_url: str, slug: str) -> bool:
+    """Download the cover and write optimised ``.jpg`` + ``.webp`` variants.
+
+    Returns False when the existing files already show the same picture and
+    were left untouched.
+    """
     host = urlparse(cover_url).hostname or ""
     if not host.endswith(ALLOWED_IMAGE_HOSTS_SUFFIX):
         raise ValueError(f"unexpected cover host: {host}")
@@ -233,10 +264,15 @@ def save_cover(session: requests.Session, cover_url: str, slug: str) -> None:
     img = crop_to_aspect(img, COVER_ASPECT).resize(COVER_OUTPUT_SIZE, Image.LANCZOS)
     img = ImageEnhance.Sharpness(img).enhance(1.06)
 
+    jpg_path = OUTPUT_DIR / f"{slug}.jpg"
+    webp_path = OUTPUT_DIR / f"{slug}.webp"
+    if webp_path.exists() and _same_picture(jpg_path, img):
+        return False
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    img.save(OUTPUT_DIR / f"{slug}.jpg", "JPEG", quality=JPEG_QUALITY,
-             optimize=True, progressive=True)
-    img.save(OUTPUT_DIR / f"{slug}.webp", "WEBP", quality=WEBP_QUALITY, method=6)
+    img.save(jpg_path, "JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
+    img.save(webp_path, "WEBP", quality=WEBP_QUALITY, method=6)
+    return True
 
 
 # --------------------------------------------------------------------------- #
@@ -336,6 +372,21 @@ def update_gallery(markup: str) -> None:
     GALLERY_HTML.write_text(updated, encoding="utf-8")
 
 
+def load_previous_albums() -> dict[str, Album]:
+    """Return the last successful sync's albums, keyed by album id."""
+    try:
+        data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+        return {album_id_of(a["url"]): Album(**a) for a in data}
+    except (OSError, ValueError, TypeError, KeyError):
+        return {}
+
+
+def _is_permanent_failure(exc: requests.RequestException) -> bool:
+    """True for 4xx responses (other than rate limiting) — the album is gone."""
+    response = getattr(exc, "response", None)
+    return response is not None and 400 <= response.status_code < 500 and response.status_code != 429
+
+
 # --------------------------------------------------------------------------- #
 # Main
 # --------------------------------------------------------------------------- #
@@ -354,18 +405,45 @@ def main() -> int:
     session = requests.Session()
     session.headers["User-Agent"] = USER_AGENT
 
+    previous = load_previous_albums()
     albums: list[Album] = []
     used_slugs: set[str] = set()
+    kept: list[str] = []
+    dropped: list[str] = []
+    rewritten = 0
+
+    def keep_previous(index: int, entry: AlbumInput, reason: str) -> None:
+        """Fall back to the last good card so a hiccup doesn't drop an album."""
+        prev = previous.get(album_id_of(entry.url))
+        if (
+            prev
+            and prev.slug not in used_slugs
+            and (PROJECT_ROOT / prev.cover_jpg).exists()
+            and (PROJECT_ROOT / prev.cover_webp).exists()
+        ):
+            used_slugs.add(prev.slug)
+            albums.append(prev)
+            kept.append(prev.title)
+            print(f"  ~ [{index}] {reason}; kept the previous card for '{prev.title}'")
+        else:
+            dropped.append(entry.url)
+            print(f"  ! [{index}] {reason}; skipped\n      {entry.url}")
+
     for index, entry in enumerate(entries, 1):
         try:
             tags = fetch_open_graph(session, entry.url)
         except requests.RequestException as exc:
-            print(f"  ! [{index}] could not load album page: {exc}")
+            if _is_permanent_failure(exc):
+                dropped.append(entry.url)
+                print(f"  ! [{index}] album page is gone ({exc}); skipped\n      {entry.url}")
+            else:
+                keep_previous(index, entry, f"could not load album page ({exc})")
             continue
 
         album_name = tags.get("og:title", "")
         cover_url = tags.get("og:image", "")
         if not album_name or not cover_url:
+            dropped.append(entry.url)
             print(
                 f"  ! [{index}] no album metadata found — is link sharing still on?\n"
                 f"      {entry.url}"
@@ -376,7 +454,6 @@ def main() -> int:
         title = entry.title_override or auto_title
         date = entry.date_override if entry.date_override is not None else auto_date
         slug = unique_slug(title, entry.url, used_slugs)
-        used_slugs.add(slug)
 
         album = Album(
             slug=slug,
@@ -389,22 +466,35 @@ def main() -> int:
 
         if not args.dry_run:
             try:
-                save_cover(session, cover_url, slug)
+                rewritten += save_cover(session, cover_url, slug)
             except (requests.RequestException, ValueError, OSError) as exc:
-                print(f"  ! [{index}] cover download failed for '{title}': {exc}")
+                keep_previous(index, entry, f"cover download failed for '{title}' ({exc})")
                 continue
 
+        used_slugs.add(slug)
         albums.append(album)
         print(f"  \u2713 [{index}] {title}" + (f"  ({date})" if date else ""))
 
     if not albums:
         sys.exit("\nERROR: no albums could be collected — nothing was written.")
 
+    # A burst of failures usually means Google blocked or changed the page,
+    # not that the albums were deleted. Refuse to strip the gallery.
+    if len(dropped) > max(2, len(entries) // 4):
+        sys.exit(
+            f"\nERROR: {len(dropped)} of {len(entries)} album(s) could not be read — "
+            "refusing to rewrite the gallery. Check the links above and retry."
+        )
+
     albums.sort(key=album_sort_date, reverse=True)
 
     if args.dry_run:
         print(f"\nDry run: {len(albums)} album(s) resolved, no files written.")
         return 0
+
+    if kept:
+        print(f"\nKept the previous card for {len(kept)} album(s) that failed to refresh")
+    print(f"Updated {rewritten} cover image(s); the rest were unchanged")
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(
